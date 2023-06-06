@@ -42,13 +42,14 @@ class Point:
 
 
 class Line:
-    def __init__(self, p1: Point, p2: Point, colour=(255, 255, 255)):
+    def __init__(self, p1: Point, p2: Point, colour=(255, 255, 255), height=WALL_HEIGHT):
         self.p1 = p1
         self.p2 = p2
         slope = (p2.y - p1.y)/(p2.x - p1.x + 0.000000001)
         self.graph = [slope, p2.y - slope*p2.x]
         self.colour = colour
         self.length = sqrt((self.p1.x-self.p2.x)**2 + (self.p1.y - self.p2.y)**2)
+        self.height = height
 
     def move(self, dx, dy):
         self.p1.x += dx
